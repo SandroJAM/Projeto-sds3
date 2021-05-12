@@ -9,7 +9,7 @@ public class SaleDTO {
 	private Long id;
 	private Integer visited;
 	private Integer deals;
-	private Integer amount;
+	private Double amount;
 	private LocalDate date;
 	
 	private SellerDTO seller;
@@ -17,7 +17,7 @@ public class SaleDTO {
 	public SaleDTO( ) {
 	}
 
-	public SaleDTO(Long id, Integer visited, Integer deals, Integer amount, LocalDate date, SellerDTO seller) {
+	public SaleDTO(Long id, Integer visited, Integer deals, Double amount, LocalDate date, SellerDTO seller) {
 	
 		this.id = id;
 		this.visited = visited;
@@ -61,11 +61,11 @@ public class SaleDTO {
 		this.deals = deals;
 	}
 
-	public Integer getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Integer amount) {
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
 
