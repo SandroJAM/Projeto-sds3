@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
 import { SaleSum } from 'types/sale';
 import { BASE_URL } from 'utils/requests';
@@ -13,13 +14,16 @@ type ChartData = {
 const DonutChart = () => {
 
     // FORMA ERRADA - Criar váriaveis como feito abaixo.
-    let chartData: ChartData = { labels: [], series: [] };
+    //let chartData: ChartData = { labels: [], series: [] };
+
+    // FORMA CORRETA
+    const [chartData, setChartData] = useState<ChartData>({ labels: [], series: [] });
 
     // Fazer requisição dos dados da soma das vendas
     // axios.get(BASE_URL + '/sales/amount-by-seller')
     // Resquisição assíncrona
 
-    // FORMA ERRADA
+    /* FORMA ERRADA
     axios.get(`${BASE_URL}/sales/amount-by-seller`)
         .then(response => {
             
@@ -27,11 +31,31 @@ const DonutChart = () => {
             const myLabels = data.map(x => x.sellerName);
             const mySeries = data.map(x => x.sum);
 
-            chartData = { labels: myLabels, series: mySeries };
+            // chartData = { labels: myLabels, series: mySeries };
+            setChartData({ labels: myLabels, series: mySeries });
 
             //console.log(response.data)
             console.log(chartData)
         });
+    */
+
+    // FORMA CORRETA
+    
+    useEffect(() => {
+        axios.get(`${BASE_URL}/sales/amount-by-seller`)
+        .then(response => {
+            
+            const data = response.data as SaleSum[];
+            const myLabels = data.map(x => x.sellerName);
+            const mySeries = data.map(x => x.sum);
+
+            // chartData = { labels: myLabels, series: mySeries };
+            setChartData({ labels: myLabels, series: mySeries });
+
+            //console.log(response.data)
+            //console.log(chartData)
+        });
+    }, []);
 
     // Mostra dados estáticos
     //    const mockData = {
