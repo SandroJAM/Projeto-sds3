@@ -3,6 +3,7 @@ import Pagination from "components/Pagination";
 import { useEffect, useState } from "react";
 import { SalePage } from "types/sale";
 import { formatLocalDate } from "utils/format";
+
 import { BASE_URL } from "utils/requests";
 
 const DataTable = () => {
@@ -35,11 +36,11 @@ const DataTable = () => {
                 <table className="table table-striped table-sm">
                     <thead>
                         <tr>
-                            <th>Data</th>
-                            <th>Vendedor</th>
-                            <th>Clientes visitados</th>
-                            <th>Negócios fechados</th>
-                            <th>Valor</th>
+                            <td>Data</td>
+                            <td>Vendedor</td>
+                            <td>Clientes Visitados</td>
+                            <td>Negócios Fechados</td>
+                            <td>Valor</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,42 +61,3 @@ const DataTable = () => {
 }
 
 export default DataTable;
-
-// Dados estáticos
-/*
-<tr>
-   <td>22/04/2021</td>
-   <td>Barry Allen</td>
-   <td>34</td>
-   <td>25</td>
-   <td>15017.00</td>
-</tr>
-                        <tr>
-   <td>22/04/2021</td>
-   <td>Barry Allen</td>
-   <td>34</td>
-   <td>25</td>
-   <td>15017.00</td>
-</tr>
-                        <tr>
-   <td>22/04/2021</td>
-   <td>Barry Allen</td>
-   <td>34</td>
-   <td>25</td>
-   <td>15017.00</td>
-</tr>
-                        <tr>
-   <td>22/04/2021</td>
-   <td>Barry Allen</td>
-   <td>34</td>
-   <td>25</td>
-   <td>15017.00</td>
-</tr>
-                        <tr>
-   <td>22/04/2021</td>
-   <td>Barry Allen</td>
-   <td>34</td>
-   <td>25</td>
-   <td>15017.00</td>
-</tr>
-*/
