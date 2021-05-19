@@ -14,11 +14,11 @@ const DataTable = () => {
         last: true,
         number: 0,
         totalElements: 0,
-        totalPages: 0
-    });
+        totalPages: 0,
+    })
 
     useEffect(() => {
-        //axios.get(`${BASE_URL}/sales?page=0$size=20&sort=date,desc`)
+      //axios.get(`${BASE_URL}/sales?page=0$size=20&sort=date,desc`)
         axios.get(`${BASE_URL}/sales?page=${activePage}&size=20&sort=date,desc`)
             .then(response => {
                 setPage(response.data);
@@ -36,15 +36,15 @@ const DataTable = () => {
                 <table className="table table-striped table-sm">
                     <thead>
                         <tr>
-                            <td>Data</td>
-                            <td>Vendedor</td>
-                            <td>Clientes Visitados</td>
-                            <td>Negócios Fechados</td>
-                            <td>Valor</td>
+                            <th>Data</th>
+                            <th>Vendedor</th>
+                            <th>Clientes Visitados</th>
+                            <th>Negócios Fechados</th>
+                            <th>Valor</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {page.contente?.map(item => (
+                        {page.content?.map(item => (
                             < tr key={item.id}>
                                 <td>{formatLocalDate(item.date, "dd/MM/yyyy")}</td>
                                 <td>{item.seller.name}</td>
